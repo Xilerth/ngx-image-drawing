@@ -60,7 +60,8 @@ export class ImageDrawingComponent implements OnInit, OnChanges {
 
     @Output() public save: EventEmitter<Blob> = new EventEmitter<Blob>();
     @Output() public cancel: EventEmitter<void> = new EventEmitter<void>();
-
+    @Output() public imageLoad: EventEmitter<any> = new EventEmitter<any>();
+    
     public currentTool = 'brush';
     public currentSize = 'medium';
     public currentColor = 'black';
@@ -384,7 +385,7 @@ export class ImageDrawingComponent implements OnInit, OnChanges {
 
                 image.scaleToWidth(width, false);
                 image.scaleToHeight(height, false);
-
+                this.imageLoad.emit(imageUsed);
                 this.canvas.setBackgroundImage(image, ((img: HTMLImageElement) => {
                     if (img) {
                         if (this.forceSizeCanvas) {
