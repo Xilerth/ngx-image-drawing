@@ -73,6 +73,7 @@ You can now use in a component like so
 ### Actions
 - `save` - Action on save button click, use `$event` to get the new edited image
 - `cancel` - Action on cancel button click
+- `imageLoad` - Action on Load image
 
 ## Maintainers
 
